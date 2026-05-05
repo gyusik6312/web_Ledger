@@ -3,20 +3,17 @@
 ## 概要
 React、Node.js、MySQLを用いて開発した家計簿アプリです。  
 カレンダーUIを基に、日付ごとの収入・支出を管理できるように設計しました。  
-実際に動作するWebアプリケーションとして開発しました。
+実際にフロントエンドとバックエンドを連携させたWebアプリケーションとして開発しました。
 
 ---
 
 ## デモ画面
 
 ### カレンダー画面
-![calendar]<img width="2553" height="1403" alt="스크린샷 2026-05-05 173957" src="https://github.com/user-attachments/assets/59c5fc32-24dc-4adf-9dc5-5b88207275de" />
-
-
+<img src="https://github.com/user-attachments/assets/59c5fc32-24dc-4adf-9dc5-5b88207275de" width="900" />
 
 ### データ管理（モーダル）
-![modal]<img width="2543" height="1403" alt="스크린샷 2026-05-05 173953" src="https://github.com/user-attachments/assets/af4066c7-a564-4ab1-bb79-2515a66fb1a0" />
-
+<img src="https://github.com/user-attachments/assets/af4066c7-a564-4ab1-bb79-2515a66fb1a0" width="900" />
 
 ---
 
@@ -37,7 +34,7 @@ React、Node.js、MySQLを用いて開発した家計簿アプリです。
 ---
 
 ## アーキテクチャ
-React（フロントエンド）からExpress（バックエンド）のREST APIを通じて  
+React（フロントエンド）からExpress（バックエンド）のREST APIを通じて、  
 MySQLデータベースと通信する構成になっています。
 
 ---
@@ -73,9 +70,11 @@ DockerでMySQLコンテナを起動してください。
 ### フロントエンド
 npm install  
 npm start  
+→ http://localhost:3000 で確認できます
 
 ### バックエンド
 node server.js  
+→ http://localhost:5000 でAPIが動作します
 
 ※Docker環境がない場合は、ローカルのMySQLでも動作可能です。
 
