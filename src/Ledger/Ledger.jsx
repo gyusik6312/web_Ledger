@@ -8,8 +8,11 @@ function Ledger()
 {
   const [modalOpen, setModal] = useState(false);
   const [ledgerData, setData] = useState([]);
-  function handleDateClick()
+  const [selectedDate, setSelectedDate] = useState(null);
+
+  function handleDateClick(info)
   {  
+    setSelectedDate(info.dateStr)
     setModal(true)
   }
 
@@ -18,14 +21,19 @@ function Ledger()
     setModal(false);
   }
 
-  useEffect(()=>{
+  function fetchLedgerData()
+  {
     fetch("http://localhost:5000/api/ledger")
       .then((res) => res.json())
       .then((data) => {setData(data)});
+  }
+
+  useEffect(()=>{
+    fetchLedgerData();
   }, [])
 
   return (
-  <div style={{ width: "800px", margin: "0 auto" }}>
+  <div style={{ pointerEvents: modalOpen ? "none" : "auto", width: "800px", margin: "0 auto" }}>
     <FullCalendar plugins={[dayGridPlugin, interactionPlugin]}
       initialView="dayGridMonth"
       dateClick={handleDateClick}
@@ -35,7 +43,9 @@ function Ledger()
         date: item.ledger_date}))}> 
     </FullCalendar >
 
-    <ShowContent modalOpen = {modalOpen} closeModal = {closeModal}></ShowContent>
+    <ShowContent modalOpen = {modalOpen} closeModal = {closeModal} date = {selectedDate} fetchedData = {fetchLedgerData} selectedItems={ledgerData.filter(item => 
+      new Date(item.ledger_date).toLocaleDateString('en-CA') === selectedDate
+)}></ShowContent>
   </div>
   );
 }

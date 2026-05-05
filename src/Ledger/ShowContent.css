@@ -1,0 +1,27 @@
+.modalOverlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+
+  background-color: rgba(119, 116, 116, 0.7);
+  z-index: 9999;
+}
+
+.modalContent {
+  position: absolute;
+
+  width: 300px;
+  height: 600px;
+
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+
+  background-color: rgba(142, 138, 191, 0.86);
+  border-radius: 10px;
+  padding: 20px;
+
+  z-index: 10000;
+}

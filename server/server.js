@@ -34,16 +34,26 @@ app.get("/api/ledger", (req, res) => {
 });
 
 app.post("/api/ledger", (req, res) => {
-  const {ledger_date, ledger_title, ledger_content, amount} = req.body;
+  const {ledger_date, ledger_title, ledger_content, amount, user_ID} = req.body;
   db.query(
-    "insert into ledger(ledger_date, ledger_title, ledger_content, amount) values(?, ?, ?, ?)",
-    [ledger_date, ledger_title, ledger_content, amount],
+    "insert into ledger(ledger_date, ledger_title, ledger_content, amount, user_ID) values(?, ?, ?, ?, ?)",
+    [ledger_date, ledger_title, ledger_content, amount, user_ID],
     (err, result) => {
       if (err) return res.status(500).send(err);
       res.json({
         message: "추가 성공",
       })
     });
+});
+
+app.delete("/api/ledger/:id", (req, res) => {
+  const { id } = req.params;
+
+  const sql = "DELETE FROM ledger WHERE ledger_ID = ?";
+  db.query(sql, [id], (err, result) => {
+    if (err) return res.status(500).json(err);
+    res.json({ success: true });
+  });
 });
 
 app.listen(5000, () => {
