@@ -10,7 +10,8 @@ React、Node.js、MySQLを用いて開発した家計簿アプリです。
 ## デモ画面
 
 ### カレンダー画面
-![calendar]![Uploading 스크린샷 2026-05-05 173957.png…]()
+![calendar]<img width="2553" height="1403" alt="스크린샷 2026-05-05 173957" src="https://github.com/user-attachments/assets/59c5fc32-24dc-4adf-9dc5-5b88207275de" />
+
 
 
 ### データ管理（モーダル）
